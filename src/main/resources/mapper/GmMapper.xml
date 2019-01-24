@@ -1,0 +1,58 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cks.studiowebsite.service.GmMapper">
+    <delete id="deleteByid" >
+        delete from people where id in
+        <foreach collection="list" item="list" open="(" close=")" separator="," index="index">
+            #{list}
+        </foreach>
+    </delete>
+
+
+    <select id="demo" parameterType="int" resultType="java.lang.String">
+        select * from people
+        <where>
+            <if test="demo!=null">
+                demo=#{demo}
+            </if>
+        </where>
+    </select>
+
+
+    <update id="updata" parameterType="cn.cks.studiowebsite.dao.pojo.People">
+        update people set id=#{id},job=#{job},name=#{name},phone=#{phone},qq=#{qq},email=#{email},introduce=#{introduce} where id=#{id}
+    </update>
+    <delete id="deleteimgById">
+        delete from img where id in
+        <foreach collection="list" separator="," close=")" open="(" item="item">
+            #{item}
+        </foreach>
+    </delete>
+
+
+    <select id="selectImgsById" resultType="cn.cks.studiowebsite.dao.pojo.Img" >
+        select * from img where id in
+        <foreach collection="list" open="(" item="item" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+
+    <select id="selectDynamicimgById" resultType="cn.cks.studiowebsite.dao.pojo.Img" >
+        select * from imgdynamic where id in
+        <foreach collection="list" open="(" item="item" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+
+    <delete id="deleteDynamicimgById">
+        delete from imgdynamic where id in
+        <foreach collection="list" separator="," close=")" open="(" item="item">
+            #{item}
+        </foreach>
+    </delete>
+
+
+</mapper>

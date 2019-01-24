@@ -1,0 +1,44 @@
+2018-12-23 16:49:55.425  INFO 6716 --- [main] c.c.s.StudioWebsiteApplication           : Starting StudioWebsiteApplication on DESKTOP-03VQTCF with PID 6716 (D:\idea\studio-website\target\classes started by coder in D:\idea\studio-website)
+2018-12-23 16:49:55.432  INFO 6716 --- [main] c.c.s.StudioWebsiteApplication           : The following profiles are active: dev
+2018-12-23 16:49:58.135  INFO 6716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f03c689f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-23 16:49:58.803  INFO 6716 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2018-12-23 16:49:58.842  INFO 6716 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-23 16:49:58.842  INFO 6716 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-23 16:49:58.895  INFO 6716 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.18] using APR version [1.6.5].
+2018-12-23 16:49:58.896  INFO 6716 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-12-23 16:49:58.896  INFO 6716 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-12-23 16:49:58.901  INFO 6716 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1  11 Sep 2018]
+2018-12-23 16:49:59.134  INFO 6716 --- [main] o.a.c.c.C.[.[localhost].[/studio]        : Initializing Spring embedded WebApplicationContext
+2018-12-23 16:49:59.134  INFO 6716 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3464 ms
+2018-12-23 16:49:59.159  INFO 6716 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-23 16:49:59.165  INFO 6716 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-23 16:49:59.381  INFO 6716 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-23 16:50:02.189  INFO 6716 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-23 16:50:02.273  INFO 6716 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-23 16:50:02.292  INFO 6716 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-23 16:50:02.491  WARN 6716 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:50:02.535  WARN 6716 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:50:02.540  WARN 6716 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:50:02.543  WARN 6716 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:50:02.545  WARN 6716 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:50:02.547  WARN 6716 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:50:02.609  INFO 6716 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/studio'
+2018-12-23 16:50:02.612  INFO 6716 --- [main] c.c.s.StudioWebsiteApplication           : Started StudioWebsiteApplication in 8.235 seconds (JVM running for 9.453)
+2018-12-23 16:51:06.839  INFO 6716 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/studio]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-23 16:51:06.839  INFO 6716 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-23 16:51:06.851  INFO 6716 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2018-12-23 16:51:52.305  INFO 8880 --- [main] c.c.s.StudioWebsiteApplicationTests      : Starting StudioWebsiteApplicationTests on DESKTOP-03VQTCF with PID 8880 (started by coder in D:\idea\studio-website)
+2018-12-23 16:51:52.306  INFO 8880 --- [main] c.c.s.StudioWebsiteApplicationTests      : The following profiles are active: dev
+2018-12-23 16:51:54.401  INFO 8880 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8c6e0ecd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-23 16:51:55.030  INFO 8880 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-23 16:51:59.487  INFO 8880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-23 16:51:59.526  INFO 8880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-23 16:51:59.545  INFO 8880 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-23 16:51:59.742  WARN 8880 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:51:59.793  WARN 8880 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:51:59.801  WARN 8880 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:51:59.807  WARN 8880 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:51:59.809  WARN 8880 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:51:59.812  WARN 8880 --- [main] d.s.r.o.OperationImplicitParameterReader : Coercing to be of type string. This may not even be a scalar type in actuality
+2018-12-23 16:51:59.871  INFO 8880 --- [main] c.c.s.StudioWebsiteApplicationTests      : Started StudioWebsiteApplicationTests in 8.051 seconds (JVM running for 10.06)
+2018-12-23 16:52:01.352  INFO 8880 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

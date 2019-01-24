@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+
+    <!-- PAGE TITLE -->
+    <title>志宏工作室</title>
+
+    <!-- ===================================
+        FAVICON ICON
+    ==================================== -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- ===================================
+        NORMALIZE CSS
+    ==================================== -->
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!-- ===================================
+        BOOTSTRAP
+    ==================================== -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- ===================================
+        GOOGLE FONTS
+    ==================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:600,700,400,300' rel='stylesheet' type='text/css'>
+
+    <!-- ===================================
+        FONTS ICON
+    ==================================== -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+
+    <!-- ===================================
+        PLUGIN
+    ==================================== -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/slider-pro.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- ===================================
+        MAIN STYLESHEET
+    ==================================== -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/color.css" id="colors" />
+
+
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script type="text/javascript" src="js/selectivizr-min.js"></script>
+    <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+    <style>
+        .photo {
+
+            -moz-box-shadow: -4px 2px 14px #333333;
+            -webkit-box-shadow: -4px 2px 14px #333333;
+            box-shadow: -4px 2px 14px #333333;
+            border: #333333 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <!-- Section Header -->
+            <div class="col-md-12 col-sm-12 col-xs-12 clean-section-header wow fadeInDown">
+                <h4 class="clean-color-contras" style="padding: 20px 0px 0px 0px">工作室动态</h4>
+                <div class="clean-line"></div>
+                <p class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1"></p>
+            </div>
+            <!-- Section Header End -->
+        </div>
+        <div class="row" th:each="ob:${dynamic}" th:object="${ob}">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <img class="photo"  src="images/test.jpg " th:src="*{path}" alt="">
+                <hr/>
+            </div>
+            <div class="">
+                <div> <i class="fa fa-quote-left  pull-left fa-border "></i></div>
+                <textarea readonly  rows="5" style="resize:none;border: none;color: #0b0b0b" class="text col-md-6 col-sm-6 col-xs-6" th:text="*{text}"></textarea>
+            </div>
+        </div>
+
+    </div>
+    <footer class="background-two">
+        <div class="container">
+            <div class="row">
+                <div class="clean-footer-content">
+                    <div class="clean-footer-logo wow bounceIn" data-wow-offset="0">
+                        <a href="#">
+                            <img id="logo-footer" src="images/logo.png" alt="回到顶部">
+                        </a>
+                    </div>
+
+                    <p class="clean-copyright-info">Creat By &copy; 2018 </p>
+
+                    <ul class="clean-footer-social-info">
+                        <li>
+                            <a href=""><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>

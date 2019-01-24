@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo1"></p>
+<input type="button" onclick="demo()" value="按钮" id="demo2">
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function demo() {
+        var demo;
+        $.ajax({
+            url: "http://localhost:8081/studio/selectupdir",
+            type: "POST",
+            dataType : "text",
+        success:function (res) {
+            alert(res)
+        },
+        error:function(){
+            alert("error");
+        }
+    });
+}
+</script>
+</html>

@@ -1,0 +1,64 @@
+spring:
+  profiles:
+    active: dev
+---
+web:
+  imgpath_Honor: E:/imgpath_Honor/
+  imgpath_dynamic: E:/imgpath_dynamic/
+spring:
+  tengxun:
+    accessKey: AKIDQg3Lfr6ur4HKExClhe8VpzBC43tZHatT
+    secretKey: YxFNKAvkg2DG8tfTI0q8GIGF8qSudZaE
+    bucket: ap-beijing
+    bucketName: wjf-img-1257162022
+    path: https://wjf-img-1257162022.cos.ap-beijing.myqcloud.com
+    qianzui: img
+  thymeleaf:
+    cache: false
+  profiles: dev
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/ssm?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    password: weijianfeng666
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    schema:
+    - classpath:sql/ssm.sql
+    initialization-mode: always
+  mvc:
+    favicon:
+      enabled: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+server:
+  servlet:
+    context-path: /studio
+  port: 8081
+mybatis:
+  mapper-locations: /mapper/*.xml
+logging:
+  level:
+    cn.cks.studiowebsite.service.PeopleMapper:
+      INFO
+  path: log
+
+---
+spring:
+  profiles: run
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/ssm?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    password: weijianfeng666
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    schema:
+      - classpath:sql/ssm.sql
+    initialization-mode: always
+server:
+  servlet:
+    context-path: /
+  port: 8080
+---
+

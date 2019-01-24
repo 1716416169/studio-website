@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" th:href="@{/ico/favicon.ico}"/>
+    <link rel="bookmark" th:href="@{/ico/favicon.ico}"/>
+    <style type="text/css">
+        .content {
+            margin: 20px;
+
+        }
+
+        .row {
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+
+        .cen {
+            text-align: right;
+        }
+
+        .list {
+            display: flex;
+            flex-flow: row;
+        }
+
+        .caption {
+            width: 70%;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<p style="text-align: center;">-----------------人员介绍-------------------</p>
+<div style="width:940px; height:300px;text-align: right;display: inline-block">
+    <div style="display: inline-block; text-align: center">
+        <form th:action="@{/commitdelete}" th:method="post">
+            <table border="2" style="text-align: center">
+                <tr>
+                    <td></td>
+                    <td style="text-align: center">name</td>
+                    <td style="text-align: center">job</td>
+                    <td style="text-align: center">phone</td>
+                    <td style="text-align: center">qq</td>
+                    <td style="text-align: center">email</td>
+                    <td style="text-align: center">introduce</td>
+                </tr>
+                <tr th:each="peo:${people}" th:object="${peo}">
+                    <td><input th:type="checkbox" th:name="checks" th:value="*{id}"></td>
+                    <td th:id="*{id}" th:utext="*{name}"></td>
+                    <td th:utext="*{job}"></td>
+                    <td th:utext="*{phone}"></td>
+                    <td th:utext="*{qq}"></td>
+                    <td th:utext="*{email}"></td>
+                    <td th:utext="*{introduce}"></td>
+                    <td>
+                        <button type="button"  th:onclick="'javascript:updata('+*{id}+');'">修改内容</button>
+                    </td>
+                </tr>
+            </table>
+            <span><input th:type="submit" th:value="选中删除" style="text-align: center"></span>
+        </form>
+    </div>
+</div>
+<div th:id="updata" style="padding:0px 0px 0px 0px ;display: none; display: none;width:300px; height:200px;">
+    <form th:action="@{/updata}" th:method="POST">
+        <table border="2">
+            <tr hidden>
+                <td><input th:type="text" th:id="iddemo" th:value="0" th:name="id"></td>
+            </tr>
+            <tr>
+                <td class="cen">name:</td>
+                <td><input th:type="text" th:name="name"></td>
+            </tr>
+            <tr>
+                <td class="cen"> job:</td>
+                <td><input th:type="text" th:name="job"></td>
+            </tr>
+            <tr>
+                <td class="cen">phone:</td>
+                <td><input th:type="text" th:name="phone"></td>
+            </tr>
+            <tr>
+                <td class="cen">qq:</td>
+                <td><input th:type="text" th:name="qq"></td>
+            </tr>
+            <tr>
+                <td class="cen">email:</td>
+                <td><input th:type="text" th:name="email"></td>
+            </tr>
+            <tr>
+                <td class="cen">introduce:</td>
+                <td><input th:type="text" th:name="introduce"></td>
+            </tr>
+        </table>
+        <input th:type="submit" th:value="修改">
+    </form>
+    <button th:onclick="cancel()">取消</button>
+</div>
+<hr>
+<p style="text-align: center;"> 人员添加 </p>
+<div style="text-align: center;">
+    <div style="margin:0 auto ;width:300px; height:200px;">
+        <form th:action="@{/commit}" th:method="post" style="text-align: center;">
+            <table>
+                <tr>
+                    <td class="cen">name:</td>
+                    <td><input th:type="text" th:name="name"></td>
+                </tr>
+                <tr>
+                    <td class="cen">job:</td>
+                    <td><input th:type="text" th:name="job"></td>
+                </tr>
+                <tr>
+                    <td class="cen">phone:</td>
+                    <td><input th:type="text" th:name="phone"></td>
+                </tr>
+                <tr>
+                    <td class="cen">qq:</td>
+                    <td><input th:type="text" th:name="qq"></td>
+                </tr>
+                <tr>
+                    <td class="cen">email:</td>
+                    <td><input th:type="text" th:name="email"></td>
+                </tr>
+                <tr>
+                    <td class="cen">introduce:</td>
+                    <td><input th:type="text" th:name="introduce"></td>
+                </tr>
+            </table>
+            <input type="submit" th:value="添加" style="text-align: center">
+        </form>
+    </div>
+</div>
+<hr>
+<p style="text-align: center">-----------------团队荣誉-------------------</p>
+<form th:action="@{/matchupdata}" th:method="POST">
+    <div class="list" th:each="i:${listimg}" th:object="${i}">
+        <input th:type="checkbox" th:name="checks" th:value="*{id}">
+        <img src="./img/competition_header.jpg" th:src="*{path}"
+             style="width: 700px;height: 300px;margin: 0px 0px 30px 0px;">
+        <div class="caption">
+            <p th:text="*{text}"></p>
+        </div>
+    </div>
+    <input th:type="submit" th:value="选中删除" style="text-align: center">
+</form>
+
+<hr>
+<p style="text-align: center"> 信息添加 </p>
+<div style="text-align: center">
+    <img id="img" src="" width="300" height="120" th:alt="图片预览">
+</div>
+<div style="text-align: center">
+    <p style="text-align: center">请输入比赛介绍</p>
+    <textarea th:id="te" th:rows="30" th:cols="50" th:name="textarea">
+
+    </textarea>
+    <!--<button th:id="te" th:cols="35" th:rows="20" th:onclick="textUpload()">人员介绍</button>-->
+</div>
+<div id="uploadForm" style="text-align: center">
+    <input th:id="file" th:type="file" th:name="file"/>
+    <button id="upload" type="button" th:onclick="fileUpload()">上传</button>
+</div>
+<hr>
+<p style="text-align: center">-----------------工作室动态-------------------</p>
+<form th:action="@{/selectdynamicup}" th:method="POST">
+    <div class="list" th:each="i:${listimg2}" th:object="${i}">
+        <input th:type="checkbox" th:name="checks" th:value="*{id}">
+        <img src="./img/competition_header.jpg" th:src="*{path}"
+             style="width: 700px;height: 300px;margin: 0px 0px 30px 0px;">
+        <div class="caption">
+            <p th:text="*{text}"></p>
+        </div>
+    </div>
+    <input th:type="submit" th:value="选中删除" style="text-align: center">
+</form>
+
+<hr>
+<p style="text-align: center"> 信息添加 </p>
+<div style="text-align: center">
+    <img id="img2" src="" width="300" height="120" th:alt="图片预览">
+</div>
+<div style="text-align: center">
+    <p style="text-align: center">请输入动态</p>
+    <textarea th:id="te2" th:rows="30" th:cols="50" th:name="textarea">
+    </textarea>
+    <!--<button th:id="te" th:cols="35" th:rows="20" th:onclick="textUpload()">人员介绍</button>-->
+</div>
+<div id="uploaddynamic" style="text-align: center">
+    <input th:id="file2" th:type="file" th:name="file"/>
+    <button id="updynamic" type="button" th:onclick="dynamicUpload()">上传</button>
+</div>
+<hr>
+<p style="text-align: center">-----------------工作室简介-------------------</p>
+<div style="text-align: center">
+    <p style="text-align: center">请输入工作室介绍</p>
+    <textarea th:id="te3" th:rows="30" th:cols="50">
+    </textarea>
+</div>
+<div style="text-align: center">
+    <button id="upindex" type="button" th:onclick="upindex()">修改</button>
+    <!--<button th:id="te" th:cols="35" th:rows="20" th:onclick="textUpload()">人员介绍</button>-->
+</div>
+<hr>
+<p style="text-align: center">-----------------实习生招聘-------------------</p>
+<div style="text-align: center">
+    <p style="text-align: center">请输入实习生招聘信息</p>
+    <textarea th:id="te4" th:rows="30" th:cols="50">
+    </textarea>
+</div>
+<div style="text-align: center">
+    <button id="upstu" type="button" th:onclick="upstu()">修改</button>
+    <!--<button th:id="te" th:cols="35" th:rows="20" th:onclick="textUpload()">人员介绍</button>-->
+</div>
+<hr>
+<p style="text-align: center">-----------------研发方向-------------------</p>
+<div style="text-align: center">
+    <p style="text-align: center">请输入研发方向</p>
+    <textarea th:id="te5" th:rows="30" th:cols="50">
+    </textarea>
+</div>
+<div style="text-align: center">
+    <button id="updir" type="button" th:onclick="updir()">修改</button>
+    <!--<button th:id="te" th:cols="35" th:rows="20" th:onclick="textUpload()">人员介绍</button>-->
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function upindex() {
+        var te = {};
+        te.text = $("#te3").val();
+        console.log(te)
+        $.ajax({
+            url: "upindex",
+            type: "POST",
+            cache: false,
+            data: te,
+        }).done(function (res) {
+            alert("修改成功")
+        }).fail(function (res) {
+        });
+    }
+
+    function upstu() {
+        var te = {};
+        te.text = $("#te4").val();
+        console.log(te)
+        $.ajax({
+            url: "upstu",
+            type: 'POST',
+            cache: false,
+            data: te,
+        }).done(function (res) {
+            alert("修改成功")
+        }).fail(function (res) {
+        });
+    }
+
+    function updir() {
+        var te = {};
+        te.text = $("#te5").val();
+        console.log(te)
+        $.ajax({
+            url: "updir",
+            type: 'POST',
+            cache: false,
+            data: te,
+        }).done(function (res) {
+            alert("修改成功")
+        }).fail(function (res) {
+        });
+    }
+
+    function dynamicUpload() {
+        var formData = new FormData();
+        console.log($('#file2')[0].files[0]);
+        if ($('#file2')[0].files[0] == null) {
+            alert("请选择上传的图片！！！！！！")
+        } else {
+            alert("请稍候")
+            formData.append('file', $('#file2')[0].files[0]);
+            $.ajax({
+                url: 'Uploaddynamic',
+                type: 'POST',
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false
+            }).done(function (res) {
+                console.log("传回的img对象" + res);
+                alert("上传成功");
+                // $("#Img").src=res;
+                $("#img2").attr("src", res.path);
+                var te = $("#te2").val();
+                //console.log(JSON.stringify(te));
+                res.text = te;
+                console.log(res)
+                $.ajax({
+                    url: 'text2',
+                    type: 'POST',
+                    data: JSON.stringify(res),
+                    dataType: "json",
+                    contentType: 'application/json',
+                    async: false
+                }).done(function (res) {
+                    console.log(res)
+                })
+            }).fail(function (res) {
+            });
+        }
+    }
+
+    function cancel() {
+        $("#updata")[0].style.display = "none"
+    }
+
+    function updata(id) {
+        //alert(id);
+        $("#updata")[0].style.display = "inline-block"
+        $("#iddemo")[0].value = id;
+    }
+
+    function fileUpload() {
+        var formData = new FormData();
+        console.log($('#file')[0].files[0]);
+        if ($('#file')[0].files[0] == null) {
+            alert("请选择上传的图片！！！！！！")
+        } else {
+            alert("请稍候")
+            formData.append('file', $('#file')[0].files[0]);
+            $.ajax({
+                url: 'Uploadhonor',
+                type: 'POST',
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false
+            }).done(function (res) {
+                console.log("传回的img对象" + res);
+                alert("上传成功");
+                // $("#Img").src=res;
+                $("#img").attr("src", res.path);
+                var te = $("#te").val();
+                //console.log(JSON.stringify(te));
+                res.text = te;
+                console.log("显示对象："+res)
+                $.ajax({
+                    url: 'text',
+                    type: 'POST',
+                    data: JSON.stringify(res),
+                    dataType: "json",
+                    contentType: 'application/json',
+                    async: false
+                }).done(function (res) {
+                    console.log("最后一个对象："+res)
+                })
+            }).fail(function (res) {
+            });
+        }
+
+    }
+</script>
+</body>
+</html>
